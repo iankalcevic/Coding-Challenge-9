@@ -31,6 +31,10 @@ class Manager extends Employee {
     calculateBonus() {
         return this.salary * 12 * 0.10; //Manager bonus
     }; 
+    //Task 4 addition
+    calculateAnnualSalary() {
+        return this.salary * 12 + this.calculateBonus();
+    }; //Payroll system
 };
 
 const mgr1 = new Manager("John Smith", 201, "IT", 8000, 5);
@@ -47,6 +51,12 @@ class Company {
     addEmployee(employee) {
         this.employees.push(employee); //Add employees to company
     };
+    //Task 4 addition
+    calculateTotalPayroll() {
+        return this.employees.reduce((total,employee) => {
+            return total + employee.calculateAnnualSalary(); //Total payroll
+        }, 0); //Payroll system
+    };
 };
 
 const company = new Company("TechCorp");
@@ -56,3 +66,6 @@ company.listEmployees();
 //Expected output: 
 //"Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
 //"Manager: John Smith, ID: 201, Department: IT, Salary, $8000, Team Size: 5"
+
+//Task 4 log
+console.log(company.calculateTotalPayroll()); //Expected output: 165600
