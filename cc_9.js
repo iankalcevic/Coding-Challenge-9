@@ -65,6 +65,18 @@ company.addEmployee(mgr1);
 company.listEmployees();
 //Expected output: 
 //"Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
+
+// Task 5 - Implemting Promotions
+promoteToManager (employee, teamSize) {
+    const index = this.employee.indexOf(employee);
+    if (index !== -1)
+        this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+    //Promoted to manager
+};
+
+company.promoteToManager(emp1, 3);
+company.listEmployees();
+// Expected output: "Manager: Alice Johnson, ID: 101, Department: Sales, Salary: $5000, Team Size: 3"
 //"Manager: John Smith, ID: 201, Department: IT, Salary, $8000, Team Size: 5"
 
 //Task 4 log
